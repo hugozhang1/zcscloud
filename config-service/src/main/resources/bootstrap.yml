@@ -1,0 +1,13 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitivcm.lkkhpg.com/scm/pos20/pos_server_config.git
+          search-paths: handdev
+          username: chuangsheng.zhang
+          password: H@nd@1234
