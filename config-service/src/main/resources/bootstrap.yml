@@ -6,8 +6,15 @@ spring:
   cloud:
     config:
       server:
-        git:
-          uri: https://gitivcm.lkkhpg.com/scm/pos20/pos_server_config.git
-          search-paths: handdev
-          username: chuangsheng.zhang
-          password: H@nd@1234
+#        git:
+#          uri: https://github.com/hugozhang1/zcscloudconfig
+#          search-paths: dev
+        native:
+          search-locations: /u01/config/
+          order: 0
+  profiles:
+    active: native
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
