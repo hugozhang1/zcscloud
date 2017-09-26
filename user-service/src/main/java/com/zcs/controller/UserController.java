@@ -4,21 +4,18 @@ import com.zcs.domain.User;
 import com.zcs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- * Created by hugo on 2017/9/19.
+ * Created by hugo on 2017/9/26.
  */
-
 @RestController
-@RequestMapping(value = "/hello")
-public class HelloController {
+@RequestMapping("/user")
+public class UserController {
 
     @Autowired
     UserService userService;
@@ -27,11 +24,11 @@ public class HelloController {
     @Value("${test.name}")
     String testName;
 
-    @RequestMapping(value = "/testname",method= RequestMethod.GET)
-    public String testname() {
-        return testName;
-    }
 
+    /**
+     * 查询所有用户
+     * @return 用户
+     */
     @RequestMapping(value = "/users",method= RequestMethod.GET)
     public List<User> getALLUser() {
         return userService.findAllUser();

@@ -1,0 +1,1 @@
+INSERT INTO USER(user_name,pass_word,email)VALUES('张三','123456','123456@qq.com');
