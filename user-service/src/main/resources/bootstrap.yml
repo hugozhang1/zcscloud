@@ -5,17 +5,26 @@ spring:
     name: user-service
   cloud:
     config:
-      discovery:
-        enabled: true
-        service-id: config-service
+      enabled: false
   redis:
     database: 1
     host: 127.0.0.1
     port: 6739
+    pool:
+      min-idle: 1
+      max-idle: 8
+      max-wait: -1
+      max-active: 8
   datasource:
     url: jdbc:mysql://localhost/user_service?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: root
+  jpa:
+    show-sql: true
+  cache:
+    cache-names: invoices,users
+    type: redis
+
 test:
   name: zhangsan
 eureka:
@@ -24,6 +33,9 @@ eureka:
       defaultZone: http://localhost:9001/eureka/
   instance:
     prefer-ip-address: true
+logging:
+  level: debug
+
 
 ---
 spring:
@@ -31,3 +43,13 @@ spring:
   cloud:
     config:
       enabled: false
+
+---
+spring:
+  profiles: sit
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+        service-id: config-service

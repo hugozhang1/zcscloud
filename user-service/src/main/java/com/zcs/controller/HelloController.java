@@ -1,6 +1,7 @@
 package com.zcs.controller;
 
 import com.zcs.domain.User;
+import com.zcs.model.ClosePOSTResponse;
 import com.zcs.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +18,6 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping(value = "/hello")
 public class HelloController {
 
     @Autowired
@@ -36,4 +36,12 @@ public class HelloController {
     public List<User> getALLUser() {
         return userService.findAllUser();
     }
+    @RequestMapping(value = "/api/periods/close")
+    public ClosePOSTResponse repose(){
+        System.out.println("--------------------------" +
+                "=================");
+        return new ClosePOSTResponse("201709");
+    }
+
+
 }

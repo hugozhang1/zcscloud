@@ -10,7 +10,9 @@
 		<module>eureka-service</module>
 		<module>config-service</module>
 		<module>user-service</module>
-	</modules>
+        <module>weather-service</module>
+        <module>web-ui</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>parent</name>

@@ -1,6 +1,7 @@
 package com.zcs.service;
 
 import com.zcs.domain.User;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 

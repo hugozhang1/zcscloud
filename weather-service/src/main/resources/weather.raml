@@ -1,0 +1,51 @@
+#%RAML 1.0
+title: weather
+baseUri: http://v.juhe.cn/weather
+version: 1.0
+mediaType: application/json
+
+types:
+  queryResult :
+    properties:
+      resultcode:
+        type: string
+      reason:
+        type: string
+      result:
+        type: string
+      error_code: integer
+
+
+/index:
+  get:
+    description: queryWeather
+    queryParameters:
+      cityname:
+        description: 城市名或城市ID
+        type: string
+        required: true
+        example: 苏州
+      dtype:
+        description: 返回数据格式：json或xml,默认json
+        type: string
+        required: false
+        default: json
+        example: json
+      format:
+        description: 未来6天预报(future)两种返回格式，1或2，默认1
+        type: integer
+        default: 1
+        required: false
+        example: 1
+      key:
+        description: 你申请的key
+        type: string
+        default: 1
+        required: true
+        example: "02a43d468c299077ea3286e8da80b1ab"
+    responses:
+      200:
+        body:
+          application/json:
+            type: queryResult
+
