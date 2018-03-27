@@ -1,5 +1,20 @@
 server:
-  port: 9030
+  port: 9040
 spring:
+  freemarker:
+    enabled: true
+    check-template-location: true
+    suffix: .html
   application:
-    name: user-service
+    name: web-ui
+management:
+  security:
+    enabled: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+hystrix:
+  metrics:
+    enabled: true
+

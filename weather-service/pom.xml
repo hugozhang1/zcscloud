@@ -59,9 +59,11 @@
                         <goal>generate</goal>
                     </goals>
                         <configuration>
-                            <ramlFile>${project.basedir}/src/main/resources/weather.raml</ramlFile>
+                            <!-- raml 文件所在位置-->
+                            <ramlFile>${project.basedir}/src/main/resources/03.raml</ramlFile>
+
                             <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                            <resourcePackage>com.zcs.scalar</resourcePackage>
+                            <resourcePackage>com.zcs.three</resourcePackage>
                         </configuration>
                     </execution>
                 </executions>

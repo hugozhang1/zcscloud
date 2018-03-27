@@ -1,0 +1,68 @@
+#%RAML 1.0
+title: Hello world # required title
+baseUri: 127.0.0.1/{bucketName}
+version: 1.0
+baseUriParameters:
+  bucketName:
+    description: The name of the bucket
+documentation:
+- title: helloo
+  content: |
+    使用了rest风格的接口
+securedBy: basic
+securitySchemes:
+  basic:
+    description: |
+      This API supports Basic Authentication.
+    type: Basic Authentication
+types:
+  hello:
+    type: object
+    properties:
+      message:
+        description: 返回消息
+        type: string
+        required: true
+        default: hello world
+  Phone:
+    type: object
+    properties:
+      manufacturer:
+        type: string
+      numberOfSIMCards:
+        type: number
+      kind: string
+  Notebook:
+    type: object
+    properties:
+      manufacturer:
+        type: string
+      numberOfUSBPorts:
+        type: number
+      createDate:
+        type: datetime
+        facets:
+          onlyFutureDates?: boolean
+          noHolidays: boolean
+      kind: string
+  Device:
+    type: Phone | Notebook
+
+
+/helloworld: # optional resource
+  get: # HTTP method declaration
+    responses: # declare a response
+      200: # HTTP status code
+        body: # declare content of response
+          application/json: # media type
+            type: hello
+
+  post:
+    responses:
+      200:
+        body:
+          application/json:
+            type: string
+            example: "hello"
+
+

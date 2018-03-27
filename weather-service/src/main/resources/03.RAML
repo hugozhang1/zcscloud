@@ -1,0 +1,34 @@
+#%RAML 1.0
+title: Hello world # required title
+baseUri: 127.0.0.1
+version: 1.0
+
+types:
+  user:
+    type: object
+    description: 用户
+    properties:
+      userName:
+        type: string
+        required: true
+        example: 张三
+      age:
+        type: number
+        maximum: 200
+        displayName: 年龄
+        example: 10
+      email:
+        type: string
+        example: 122343@qq.com
+
+/user:
+  get:
+    queryParameters:
+      userName:
+        type: string
+        example: 张三
+    responses:
+      200:
+        body:
+          application/json:
+            type: user

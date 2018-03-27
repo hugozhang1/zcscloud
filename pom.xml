@@ -12,7 +12,9 @@
 		<module>user-service</module>
         <module>weather-service</module>
         <module>web-ui</module>
-    </modules>
+        <module>drools</module>
+		<module>drools-service</module>
+	</modules>
 	<packaging>pom</packaging>
 
 	<name>parent</name>
