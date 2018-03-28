@@ -1,0 +1,8 @@
+From openjdk:8-jre-alpine3.7
+MAINTAINER hugo  873952543@mail.com
+
+COPY eureka-service.jar eureka-service.jar
+EXPOSE 9001
+ENTRYPOINT [ "java", "-jar", "/eureka-service.jar" ]
+
+
